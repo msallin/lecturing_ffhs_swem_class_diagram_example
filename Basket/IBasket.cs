@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
 using SwemExample.Items;
 
-namespace SwemExample.Basket
+namespace SwemExample.Basket;
+
+public interface IBasket
 {
-    public interface IBasket
-    {
-        IEnumerable<Item> Items { get; }
+    IEnumerable<Item> Items { get; }
 
-        void Add(Item item);
+    void Add(Item item);
 
-        int GetPrice();
+    int GetPrice();
 
-        void Remove(Item item);
-    }
+    void Remove(Item item);
 }

@@ -1,7 +1,6 @@
-﻿namespace SwemExample.Basket
+﻿namespace SwemExample.Basket;
+
+public abstract class BasketFactory
 {
-    public abstract class BasketFactory
-    {
-        public abstract IBasket Create();
-    }
+    public abstract IBasket Create();
 }

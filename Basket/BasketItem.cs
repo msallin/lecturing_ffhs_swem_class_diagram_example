@@ -1,11 +1,10 @@
 ﻿using SwemExample.Items;
 
-namespace SwemExample.Basket
-{
-    public class BasketItem
-    {
-        public int Count { get; set; }
+namespace SwemExample.Basket;
 
-        public Item Item { get; set; }
-    }
+public class BasketItem
+{
+    public int Count { get; set; }
+
+    public Item Item { get; set; }
 }

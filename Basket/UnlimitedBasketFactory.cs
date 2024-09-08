@@ -1,10 +1,9 @@
-﻿namespace SwemExample.Basket
+﻿namespace SwemExample.Basket;
+
+public class UnlimitedBasketFactory : BasketFactory
 {
-    public class UnlimitedBasketFactory : BasketFactory
+    public override IBasket Create()
     {
-        public override IBasket Create()
-        {
-            return new UnlimitedBasket();
-        }
+        return new UnlimitedBasket();
     }
 }

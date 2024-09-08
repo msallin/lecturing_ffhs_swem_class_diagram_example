@@ -1,11 +1,10 @@
-﻿namespace SwemExample.Items
+﻿namespace SwemExample.Items;
+
+public enum SportItemKind
 {
-    public enum SportItemKind
-    {
-        X,
+    X,
 
-        Y,
+    Y,
 
-        Z
-    }
+    Z
 }
