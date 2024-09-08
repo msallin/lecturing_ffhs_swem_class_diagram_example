@@ -1,0 +1,9 @@
+@startuml
+abstract class Item {
+    # Item(price:int, name:string, id:int)
+    + Price : int <<get>>
+    + Name : string <<get>>
+    + Id : int <<get>>
+    + <<override>> ToString() : string
+}
+@enduml

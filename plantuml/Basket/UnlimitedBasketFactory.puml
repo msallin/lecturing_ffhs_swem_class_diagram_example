@@ -1,0 +1,6 @@
+@startuml
+class UnlimitedBasketFactory {
+    + <<override>> Create() : IBasket
+}
+BasketFactory <|-- UnlimitedBasketFactory
+@enduml

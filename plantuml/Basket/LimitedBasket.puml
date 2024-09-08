@@ -1,0 +1,16 @@
+@startuml
+class LimitedBasket {
+    + LimitedBasket(maxItemCount:int)
+    + MaxItemCount : int <<get>>
+    + GetPrice() : int
+    + Remove(item:Item) : void
+    + Add(item:Item) : void
+}
+class "List`1"<T> {
+}
+class "IEnumerable`1"<T> {
+}
+IBasket <|-- LimitedBasket
+LimitedBasket --> "_internalBasket<Item>" "List`1"
+LimitedBasket --> "Items<Item>" "IEnumerable`1"
+@enduml

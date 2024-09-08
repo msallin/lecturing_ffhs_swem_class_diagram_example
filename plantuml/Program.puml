@@ -1,0 +1,9 @@
+@startuml
+class Program {
+    - {static} Main() : void
+    - {static} PopulateBasket(basket:IBasket) : void
+    - {static} RemoveItemsUntil(basket:IBasket, targetPrice:int) : void
+    - {static} PrintBasket(basket:IBasket) : void
+}
+Program o-> "BasketFactory" BasketFactory
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class BasketItem {
+    + Count : int <<get>> <<set>>
+}
+BasketItem --> "Item" Item
+@enduml

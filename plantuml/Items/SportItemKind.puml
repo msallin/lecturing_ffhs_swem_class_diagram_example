@@ -1,0 +1,7 @@
+@startuml
+enum SportItemKind {
+    X,
+    Y,
+    Z,
+}
+@enduml

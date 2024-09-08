@@ -1,0 +1,10 @@
+@startuml
+interface IBasket {
+    Add(item:Item) : void
+    GetPrice() : int
+    Remove(item:Item) : void
+}
+class "IEnumerable`1"<T> {
+}
+IBasket --> "Items<Item>" "IEnumerable`1"
+@enduml

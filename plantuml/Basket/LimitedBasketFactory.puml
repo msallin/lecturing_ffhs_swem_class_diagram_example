@@ -1,0 +1,7 @@
+@startuml
+class LimitedBasketFactory {
+    - <<const>> MaxItemCount : int = 10
+    + <<override>> Create() : IBasket
+}
+BasketFactory <|-- LimitedBasketFactory
+@enduml

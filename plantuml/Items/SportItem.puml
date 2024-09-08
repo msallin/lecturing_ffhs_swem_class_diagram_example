@@ -1,0 +1,7 @@
+@startuml
+class SportItem {
+    + SportItem(price:int, name:string, id:int, kind:SportItemKind)
+}
+Item <|-- SportItem
+SportItem --> "Kind" SportItemKind
+@enduml

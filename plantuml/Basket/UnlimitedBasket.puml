@@ -1,0 +1,14 @@
+@startuml
+class UnlimitedBasket {
+    + Add(item:Item) : void
+    + GetPrice() : int
+    + Remove(item:Item) : void
+}
+class "IList`1"<T> {
+}
+class "IEnumerable`1"<T> {
+}
+IBasket <|-- UnlimitedBasket
+UnlimitedBasket o-> "_internalBasket<Item>" "IList`1"
+UnlimitedBasket --> "Items<Item>" "IEnumerable`1"
+@enduml

@@ -1,0 +1,76 @@
+@startuml
+class Program {
+    - {static} Main() : void
+    - {static} PopulateBasket(basket:IBasket) : void
+    - {static} RemoveItemsUntil(basket:IBasket, targetPrice:int) : void
+    - {static} PrintBasket(basket:IBasket) : void
+}
+Program o-> "BasketFactory" BasketFactory
+abstract class BasketFactory {
+    + {abstract} Create() : IBasket
+}
+class BasketItem {
+    + Count : int <<get>> <<set>>
+}
+BasketItem --> "Item" Item
+interface IBasket {
+    Add(item:Item) : void
+    GetPrice() : int
+    Remove(item:Item) : void
+}
+class "IEnumerable`1"<T> {
+}
+IBasket --> "Items<Item>" "IEnumerable`1"
+class LimitedBasket {
+    + LimitedBasket(maxItemCount:int)
+    + MaxItemCount : int <<get>>
+    + GetPrice() : int
+    + Remove(item:Item) : void
+    + Add(item:Item) : void
+}
+class "List`1"<T> {
+}
+class "IEnumerable`1"<T> {
+}
+IBasket <|-- LimitedBasket
+LimitedBasket --> "_internalBasket<Item>" "List`1"
+LimitedBasket --> "Items<Item>" "IEnumerable`1"
+class LimitedBasketFactory {
+    - <<const>> MaxItemCount : int = 10
+    + <<override>> Create() : IBasket
+}
+BasketFactory <|-- LimitedBasketFactory
+class UnlimitedBasket {
+    + Add(item:Item) : void
+    + GetPrice() : int
+    + Remove(item:Item) : void
+}
+class "IList`1"<T> {
+}
+class "IEnumerable`1"<T> {
+}
+IBasket <|-- UnlimitedBasket
+UnlimitedBasket o-> "_internalBasket<Item>" "IList`1"
+UnlimitedBasket --> "Items<Item>" "IEnumerable`1"
+class UnlimitedBasketFactory {
+    + <<override>> Create() : IBasket
+}
+BasketFactory <|-- UnlimitedBasketFactory
+abstract class Item {
+    # Item(price:int, name:string, id:int)
+    + Price : int <<get>>
+    + Name : string <<get>>
+    + Id : int <<get>>
+    + <<override>> ToString() : string
+}
+class SportItem {
+    + SportItem(price:int, name:string, id:int, kind:SportItemKind)
+}
+Item <|-- SportItem
+SportItem --> "Kind" SportItemKind
+enum SportItemKind {
+    X,
+    Y,
+    Z,
+}
+@enduml
