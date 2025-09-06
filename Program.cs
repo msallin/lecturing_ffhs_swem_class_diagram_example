@@ -8,11 +8,11 @@ namespace SwemExample;
 public class Program
 {
     // The abstract factory pattern is used to either create a limited or unlimited basket.
-    private static readonly BasketFactory BasketFactory = new UnlimitedBasketFactory();
+    private static readonly BasketFactory _basketFactory = new UnlimitedBasketFactory();
 
     private static void Main()
     {
-        IBasket basket = BasketFactory.Create();
+        IBasket basket = _basketFactory.Create();
 
         // Add items to the basket.
         PopulateBasket(basket);
@@ -56,5 +56,4 @@ public class Program
             Console.WriteLine(item.Name);
         }
     }
-
 }
